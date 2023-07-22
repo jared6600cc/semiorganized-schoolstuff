@@ -1,0 +1,42 @@
+Jared Bumgardner
+Data Structures & Algorithms 2
+Project 3
+Users Manual
+
+Setup & Compilation:
+1. Download and unzip the submission from eLearning on a Linux box in the multi-platform lab.
+2. The submission includes:
+	-FunctionalDecomposition.txt
+	-UsersManual.txt (this file)
+	-cityWeights.txt (Contains edge weights for city graph)
+	-main.c
+	-makefile
+3. Environment: This program has not been tested in the multi-platform lab but will probably compile there.
+4. Compiling: This program includes a Makefile. at the command line in Linux, type make. This program produces an executable entitled proj3.exe
+
+Running the Program:
+Have all files in the same folder. Issue command ./proj3. No command line arguments are required or checked.
+
+Output: All output goes to the console. Output will be similar to this.
+
+                ***Project 3***
+        Traveling Salesman Problem
+
+
+        *USER INPUT*
+*Number of cities: 2
+*Tours in a generation: 3
+*Number of generations: 4
+*% of mutations per generation: 5
+
+        *OUTPUT*
+Cities run: 2
+Optimal cost (brute force):
+Time (brute force): 0
+Cost (Gen.Alg.):
+Time (Gen.Alg.): 0
+% of optimal produced by Gen.Alg.:
+
+
+
+

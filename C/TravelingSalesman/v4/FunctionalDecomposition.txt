@@ -1,0 +1,25 @@
+Jared Bumgardner
+Data Structures & Algorithms 2
+Project 3
+Functional Decomposition
+
+Files & Functions:
+/*This file contains edge weights for the graph of cities*/
+cityWeights.txt
+
+/*This file creates an executable*/
+makefile
+
+/*This file contains all functions because I'm horrible*/
+main.c
+	/*This function reads information from cityWeights.txt*/
+	void readWithfscanf();
+
+	/*This function solves the traveling salesman problem by brute force*/
+	void bruteForceTSP(double graph[], int cities);
+
+	/*This function solves the traveling salesman problem by genetic alg*/
+	void genAlgTSP(double graph[], int cities);
+
+	/*This function drives the program*/
+	int main();
