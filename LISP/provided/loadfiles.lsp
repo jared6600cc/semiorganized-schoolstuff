@@ -1,0 +1,10 @@
+
+(defun loadfiles ()
+    ((load "memb.lsp")
+     (load "data.lsp")
+     (load "assoc.lsp")
+     (load "nth.lsp")
+     (load "hanoi.lsp")
+     (load "infix.lsp")
+     )
+)

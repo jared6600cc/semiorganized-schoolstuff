@@ -1,0 +1,7 @@
+(defun helloIter(n)
+    (cond ((= n 1) (princ 1))
+          (t (princ n) 
+             (helloIter (- n 1))
+           )
+     )
+)
