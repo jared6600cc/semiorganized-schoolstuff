@@ -1,0 +1,4 @@
+This program does nothing that it's supposed to do.
+I'm in the middle of implementing the brute force algorithm & I can't even figure out whats wrong.
+
+ugh
