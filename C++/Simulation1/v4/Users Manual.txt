@@ -1,0 +1,51 @@
+Jared Bumgardner
+COP4534 P2
+7 Oct 2021
+
+
+
+Operator's note:
+Program can't build heap correctly & thus nothing after building the heap is implemented. Fml.
+
+
+
+//This program utilizes a Makefile. (note: $ is shell prompt; do not enter)
+Compilation:
+$ make
+
+Execution:
+$ ./p2
+
+Cleanup: 
+$ make clean
+
+
+
+EXAMPLE OUTPUT
+$ ./p2
+Test #1 Parameters:
+2
+3
+2
+5000
+
+Test #2 Parameters:
+5
+6
+4
+5000
+
+
+Simulation #0 Results:
+Po = -1
+L = -1
+W = -1
+Lq = -1
+Wq = -1
+
+Simulation #1 Results:
+Po = -1
+L = -1
+W = -1
+Lq = -1
+Wq = -1
