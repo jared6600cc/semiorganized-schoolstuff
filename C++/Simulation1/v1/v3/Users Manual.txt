@@ -1,0 +1,4 @@
+1. compile using 'make'
+2. run using './proj4'
+
+compiled in cygwin
