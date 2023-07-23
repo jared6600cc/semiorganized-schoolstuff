@@ -1,0 +1,5 @@
+1. Compile testme.c into testme: gcc -o testme testme.c
+
+2. Run myshell: ./myshell
+
+3. Run testme program in myshell: testme 1 1000
