@@ -1,0 +1,30 @@
+Jared Bumgardner
+Systems & Networks 1
+Project 1
+User’s Manual
+
+Setup & Compilation
+  Download and unzip the submission from eLearning on a Linux box in the mutli-platform lab.
+
+The submission includes:
+  main.cpp
+  makefile
+  myshell.cpp
+  myshell.hpp
+  parse.cpp
+  parse.hpp
+  README.txt (this file)
+
+Environment: This program has been tested in the multi-platform lab..
+
+Compiling: This program includes a makefile. At the command line in Linux, type make. The program produces an executable entitled P1
+
+Running the program
+  //In normal mode:
+    Issue the command ./P1
+    
+  //In debug mode:
+    Issue the command ./P1 -Debug
+    
+User Input
+  Program reads from command line. Currently it doesnt do much but have fun.
