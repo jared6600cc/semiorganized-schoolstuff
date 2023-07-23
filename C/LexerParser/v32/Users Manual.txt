@@ -1,0 +1,19 @@
+Jared Bumgardner
+COP4020 P1
+11 Feb 2022
+
+
+//This program utilizes a Makefile. (note: $ is shell prompt; do not enter)
+Compilation:
+$ make
+
+Execution:
+$ ./run
+
+Cleanup: 
+$ make clean
+
+
+
+EXAMPLE OUTPUT
+

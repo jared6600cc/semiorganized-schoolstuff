@@ -1,0 +1,21 @@
+Jared Bumgardner
+COP4020 P1
+12 Feb 2023
+
+Note: This program does not implement lexer or parser or any functionality at all.
+I blame Jpg's & unix sockets.
+
+//This program utilizes a Makefile. (note: $ is shell prompt; do not enter)
+Compilation:
+$ make
+
+Execution:
+$ ./run
+
+Cleanup: 
+$ make clean
+
+
+
+EXAMPLE OUTPUT
+
