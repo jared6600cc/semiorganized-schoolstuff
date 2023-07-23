@@ -1,0 +1,3 @@
+DaleksGame.java: The doctor's position vs the map boundaries are check in the moveDoctor(int incr) method.
+DaleksGame.java: The daleks are assumed to be unable to run into a map boundary in their move function.
+DaleksGame.java: The doctors position is checked against the daleks in the boolean function doctorCaught().

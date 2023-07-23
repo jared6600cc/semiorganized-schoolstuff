@@ -1,0 +1,3 @@
+DalekGameFrame: The action listeners check for gameOver status between every move.
+DalekGameFrame: Safety is ensured on the JTextArea after gameOver status by setting it an uneditable status.
+DalekGameFrame: Safety is ensured on the JButtons by disabling them while in a gameOver status.
