@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1677747163 source:c:\users\jared\onedrive\documents\2march2023\lexicalanalyzer.c
+	"lexicalAnalyzer.h"
+	"parser.h"
+
+1677738817 c:\users\jared\onedrive\documents\2march2023\lexicalanalyzer.h
+	<stdio.h>
+
+1677973589 c:\users\jared\onedrive\documents\2march2023\parser.h
+	<stdio.h>
+	"symTable.h"
+
+1677841277 c:\users\jared\onedrive\documents\2march2023\symtable.h
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+
+1677979740 source:c:\users\jared\onedrive\documents\2march2023\main.c
+	"parser.h"
+
+1678056479 source:c:\users\jared\onedrive\documents\2march2023\parser.c
+	"parser.h"
+	"parseTree.h"
+
+1677841277 source:c:\users\jared\onedrive\documents\2march2023\symtable.c
+	"symTable.h"
+
+1678055468 source:c:\users\jared\onedrive\documents\2march2023\parsetree.c
+	"parseTree.h"
+
+1678055413 c:\users\jared\onedrive\documents\2march2023\parsetree.h
+	<stddef.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+

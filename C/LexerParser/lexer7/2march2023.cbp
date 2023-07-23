@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="2march2023" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/2march2023" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Option parameters="a5.in" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="a1.in" />
+		<Unit filename="a2.in" />
+		<Unit filename="a3.in" />
+		<Unit filename="a4.in" />
+		<Unit filename="a5.in" />
+		<Unit filename="a6.in" />
+		<Unit filename="a7.in" />
+		<Unit filename="a8.in" />
+		<Unit filename="errorReporter.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parseTree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parseTree.h" />
+		<Unit filename="parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser.h" />
+		<Unit filename="symTable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="symTable.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
