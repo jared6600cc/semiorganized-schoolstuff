@@ -1,0 +1,34 @@
+Jared Bumgardner
+COP4534 P3
+28 Oct 2021
+
+
+//This program utilizes a Makefile. (note: $ is shell prompt; do not enter)
+Compilation:
+$ make
+
+Execution:
+$ ./p3
+
+Cleanup: 
+$ make clean
+
+
+
+EXAMPLE OUTPUT
+$ ./p3
+====================INPUT====================
+Number of cities to run: 3
+Number of tours in a generation: 4
+Number of generations: 5
+Percentage of a generation that is mutations: 6
+=============================================
+============================OUTPUT============================
+Number of cities run: 3
+Optimal cost from Brute Force:  174.71
+Time the Brute Force Algorithm took:    0.0182 miliseconds
+Cost from the Genetic Algorithm:        174.71
+Time the Genetic Algorithm took:        0.0662 miliseconds
+Percent of optimal that the Genetic Algorithm Produced:         100%
+==============================================================
+
