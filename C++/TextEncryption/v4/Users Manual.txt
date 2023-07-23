@@ -1,0 +1,41 @@
+Jared Bumgardner
+COP4534 P1
+16 Sept 2021
+
+
+
+Operator's note:
+Every entry returns as 'no match' due to an error in my 'find' function. (I can't figue out what's wrong with it...)
+The function as been commented out to allow for compilation.
+
+
+
+//This program utilizes a Makefile. (note: $ is shell prompt; do not enter)
+Compilation:
+$ make
+
+Execution:
+$ ./P1
+
+Cleanup: 
+$ make clean
+
+
+
+EXAMPLE OUTPUT
+$ ./P1
+        LEGAL:
+        userID  Password        Result
+        BUCKNER kfDwMf  no match
+        HOOD    pkGBmR  no match
+        NORTON  FXUYsE  no match
+        VEGA    mauCPk  no match
+        ROY     rirSuL  no match
+
+        Illegal:
+        userID  Password        Result
+        BUCKNER dfDwMf  no match
+        HOOD    dkGBmR  no match
+        NORTON  dXUYsE  no match
+        VEGA    dauCPk  no match
+        ROY     dirSuL  no match
