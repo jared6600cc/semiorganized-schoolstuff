@@ -1,0 +1,265 @@
+/***************************************************************
+  Jared Bumgardner
+  main.c
+  Project 1
+
+  Main file drives execution of Lexical Analyzer & Parser.
+***************************************************************/
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define TABLESIZE 100		// symbol table size
+#define ID 300				// symTable value
+#define NUM 301				// symTable value
+#define BEGIN 400			// symTable value
+#define END 401				// symTable value
+
+#define NOT_FOUND -1		//
+#define DONE 1337			//
+
+
+/* Globals */
+FILE * fp;
+int lookahead;
+char * numLexeme[TABLESIZE];
+char * idLexeme[TABLESIZE];
+int numLexemeCount = 0;
+int idLexemeCount = 0;
+int symbolTableCount = 0;
+char ** symTable;
+
+
+/* Function prototypes */
+int lexan();
+void expr();
+void parse();
+void assignStmt();
+void match(int t);
+void addToSymbolTable(char *s, int type);
+
+
+/* Functions */
+int main(int argc, char *argv[]){
+ 	if(argc == 2){
+		/* Expected # of command line args */
+		fp = fopen(argv[1], "r");
+		if(fp == NULL){
+			/* File failed to open */
+			perror("ERROR: Failed to open input file\n");
+			exit(-1);
+		} else {
+			/* File opened */
+			addToSymbolTable("id", ID);
+			addToSymbolTable("num", NUM);
+			addToSymbolTable("begin", BEGIN);
+			addToSymbolTable("end", END);
+			parse();
+		}
+		fclose(fp);
+		free(symTable);
+	} else {
+		/* Incorrect # of command line args */
+		perror("ERROR: Incorrect number of command line arguments\n");
+		exit(-1);
+	}
+	return 0;
+}
+
+void addToNumLexeme(char *n){
+	numLexeme[numLexemeCount] = n;
+}
+
+
+void addToIDLexeme(char *n){
+	idLexeme[idLexemeCount] = n;
+}
+
+
+void printNumLexeme(){
+	for(int i = 0; i < numLexemeCount; i++){
+		printf("numLexeme[%d] = %s", i, numLexeme[i]);
+	}
+}
+
+
+void initializeSymTable(){
+    symTable = malloc(TABLESIZE * sizeof(char *));
+    if(symTable == NULL){
+        printf("ERROR: Not enough memory for SymTable");
+        exit(-1);
+    } else {
+        for(int i=0; i<TABLESIZE; i++){
+            symTable[i] = malloc(3 * sizeof(char));
+            if(symTable[i] == NULL){
+                printf("ERROR: Not enough memory for SymTable");
+                exit(-1);
+            }
+        }
+    }
+}
+
+
+int lookup(char *s){	// search SymbolTable for s, return type.
+	printf("DEBUG: Entering lookup()\n");
+	for(int i = 0; i < symbolTableCount; i++){
+		if(strcmp(symTable[i][1], s) == 0){
+			return atoi(symTable[i][2]);
+		}
+	}
+	return NOT_FOUND;
+}
+
+
+void addToSymbolTable(char *s, int type){
+	printf("lookup(s) = %d\n", lookup(s));
+	if(lookup(s) < 0){
+		printf("adding (%s) to symbol table\n", s);
+		// Add to symbol table
+		symTable[symbolTableCount][0] = symbolTableCount;
+//		sprintf(symTable[symbolTableCount][0], "%d", symbolTableCount);	// position
+//		symTable[symbolTableCount][1] = s;								// value
+//		sprintf(symTable[symbolTableCount][2], "%d", type);				// type
+		symbolTableCount++;
+	} else {
+		printf("ERROR Already in symbol table");
+	}
+}
+
+
+void parse(){
+  lookahead = lexan();
+  printf("First lookahead = %d", lookahead);
+  match(BEGIN);
+  while(lookahead != END)
+  {
+    assignStmt();
+  }
+  match(END);
+}
+
+
+void factor(){
+	if(lookahead == ID){
+		match(ID);
+	} else if(lookahead == NUM){
+		match(NUM);
+	} else if(lookahead == '('){
+		match('(');
+		expr();
+		match(')');
+	} else {
+		printf("ERROR in factor()");
+	}
+}
+
+
+void term(){
+	factor();
+	while(lookahead == '*' || lookahead == '/'){
+		match(lookahead);
+		factor();
+	}
+}
+
+
+void expr(){
+	term();
+	while(lookahead == '+' || lookahead == '-'){
+		match(lookahead);
+		term();
+	}
+}
+
+
+void assignStmt()
+{
+  match(ID);
+  if(lookahead != '=')
+	  printf("ERROR: unexpected data");
+  else{
+	  match('=');
+	  expr();
+	  match(';');
+  }
+}
+
+
+int lexan(){		// implement (start here)
+  char ch;
+  int lineNo = 0;
+  int idType = 0;
+
+  // Process file character by character
+  while(1){
+	  ch = fgetc(fp);
+	  if(ch == ' ' || ch == '\t'){
+		  // do nothing
+	  } else if(ch == '\n'){
+		  lineNo++;
+	  } else if(ch == '~'){
+		  // Remove the comment
+		  while(fgetc(fp) != '\n'){
+			  // do nothing
+		  }
+	  } else if(isdigit(ch)){
+		  char newDigit[TABLESIZE];
+		  newDigit[0] = ch;
+		  int i = 1;
+		  while(1){
+			  ch = fgetc(fp);
+			  if(isdigit(ch)){
+				  newDigit[i] = ch;
+			  } else {
+				  ungetc(ch, fp);
+				  break;
+			  }
+			  i++;
+		  }
+		  addToNumLexeme(newDigit);
+		  return NUM;
+	  } else if(isalpha(ch)){
+		  // Get ID into lexeme
+		  char newID[TABLESIZE];
+		  newID[0] = ch;
+		  int i = 1;
+		  while(1){ // go until end of string
+			  ch = fgetc(fp);
+			  if(isalpha(ch)){
+				  newID[i] = ch;
+			  } else {
+				  ungetc(ch, fp);
+				  break;
+			  }
+			  i++;
+		  }
+		  addToIDLexeme(newID);
+		  idType = lookup(newID);
+		  if(idType == NOT_FOUND){
+			  addToSymbolTable(newID, idType);
+			  return ID;
+		  } else {
+			  return idType;
+		  }
+		  return ID;
+	  } else if(ch == EOF){
+		  return DONE;
+	  } else{
+		  return ch;	//??
+	  }
+  }
+}
+
+
+void match(int t)
+{
+   printf("start match: lookahead = %d\n", lookahead);
+  if(lookahead == t)
+  {
+    printf("matched lookahead = %d, t = %d\n",lookahead, t);
+    lookahead = lexan();
+  }
+  else
+   printf("did not match lookahead = %d, t = %d\n",lookahead, t);
+}

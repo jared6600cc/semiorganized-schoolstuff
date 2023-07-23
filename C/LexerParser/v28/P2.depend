@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1677659340 source:c:\users\jared\onedrive\documents\p2\main.c
+	"symTable.h"
+	"parser.h"
+
+1677661328 source:c:\users\jared\onedrive\documents\p2\symtable.c
+	"symTable.h"
+
+1677661229 c:\users\jared\onedrive\documents\p2\symtable.h
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+
+1677661229 source:c:\users\jared\onedrive\documents\p2\lexicalanalyzer.c
+	"lexicalAnalyzer.h"
+
+1677661229 c:\users\jared\onedrive\documents\p2\lexicalanalyzer.h
+	<stdio.h>
+	"parser.h"
+
+1677661229 c:\users\jared\onedrive\documents\p2\parser.h
+	"symTable.h"
+	"lexicalAnalyzer.h"
+
+1677661229 source:c:\users\jared\onedrive\documents\p2\parser.c
+	"parser.h"
+
+1677652055 c:\users\jared\onedrive\documents\p2\errorreporter.h
+
