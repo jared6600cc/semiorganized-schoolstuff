@@ -1,0 +1,120 @@
+Jared Bumgardner
+Data Structures and Algorithms II 
+Project 4 
+User's Manual 
+
+
+Setup and Compilation 
+1. Download and unzip the submission from eLearning on a Linux box in the multi-platform lab. 
+2. The submission includes: 
+- UsersManual.txt
+- UML Diagram (UML.png)
+- P4.cpp
+- inputParameters.hpp
+- inputParameters.cpp
+- dataSet.hpp
+- dataSet.cpp
+- t1.txt, t2.txt, t3.txt, t4.txt
+- makefile
+
+
+3. Environment: 
+This program has been tested in the multi-platform lab and will run there. 
+
+
+4. Compiling. 
+This program includes a Makefile. At the command line in Linux, type make. The 
+program produces an executable entitled p4.exe.
+
+
+Running the program. 
+Be sure t1.txt, t2.txt, t3.txt, & t4.txt are in the same directory as the executable. Issue the command ./p4
+No command line arguments are required or checked.
+
+
+User input: 
+No user interaction with the program is required.
+
+
+Output: 
+All output goes to the console. Output will be similar to this: 
+$ ./p4
+
+Simulation 1:
+        Number of batches of items: 200
+        Number of items in each batch: 1000
+        Percentage of batches containing bad items: 25
+        Percentage of items that are bad in a bad set: 15
+        Items sampled from each set: 50
+
+        Generating data sets
+                Total bad sets = 50
+                Max number of bad items in a bad set = 166
+                Min number of bad items in a bad set = 166
+                Average number of bad items in a bad set = 166
+
+        Analyzing data sets
+                Total bad sets found = 50
+                Percentage of bad batches actually detected = 100%
+                Base = 0.85 exponent = 50
+                Predicted P(failure to detect bad batch) = 0.000295765
+
+
+Simulation 2:
+        Number of batches of items: 200
+        Number of items in each batch: 1000
+        Percentage of batches containing bad items: 10
+        Percentage of items that are bad in a bad set: 10
+        Items sampled from each set: 50
+
+        Generating data sets
+                Total bad sets = 20
+                Max number of bad items in a bad set = 107
+                Min number of bad items in a bad set = 107
+                Average number of bad items in a bad set = 107
+
+        Analyzing data sets
+                Total bad sets found = 20
+                Percentage of bad batches actually detected = 100%
+                Base = 0.9 exponent = 50
+                Predicted P(failure to detect bad batch) = 0.00515378
+
+
+Simulation 3:
+        Number of batches of items: 200
+        Number of items in each batch: 1000
+        Percentage of batches containing bad items: 10
+        Percentage of items that are bad in a bad set: 5
+        Items sampled from each set: 20
+
+        Generating data sets
+                Total bad sets = 20
+                Max number of bad items in a bad set = 55
+                Min number of bad items in a bad set = 55
+                Average number of bad items in a bad set = 55
+
+        Analyzing data sets
+                Total bad sets found = 0
+                Percentage of bad batches actually detected = 0%
+                Base = 0.95 exponent = 20
+                Predicted P(failure to detect bad batch) = 0.358486
+
+
+Simulation 4:
+        Number of batches of items: 200
+        Number of items in each batch: 1000
+        Percentage of batches containing bad items: 10
+        Percentage of items that are bad in a bad set: 1
+        Items sampled from each set: 10
+
+        Generating data sets
+                Total bad sets = 20
+                Max number of bad items in a bad set = 11
+                Min number of bad items in a bad set = 11
+                Average number of bad items in a bad set = 11
+
+        Analyzing data sets
+                Total bad sets found = 0
+                Percentage of bad batches actually detected = 0%
+                Base = 0.99 exponent = 10
+                Predicted P(failure to detect bad batch) = 0.904382
