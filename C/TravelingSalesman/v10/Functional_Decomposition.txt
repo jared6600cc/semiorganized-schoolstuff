@@ -1,0 +1,30 @@
+Jared Bumgardner
+Data Structures & Algorithms 2
+Project 3
+Functional Decomposition
+
+Files & Functions used in the Program:
+
+	/*This file 'solves' the Traveling Salesman Problem by way of Brute Force & a Genetic Algorithm*/
+	main.c
+		/*This function reads in edge weights from cityWeights.txt*/
+		/*It returns a pointer to an array holding the edge weights*/
+		double * readInWeights(int numCities);
+
+		/*This function swaps values for permute()*/
+		void swap(double *values, int indx1, int indx2);
+
+		/*This function permutes an array of values(don't ask me what, I messed up my implementation a lot)*/
+		void permute(double *values, int start, int end);
+
+		/*This function calculates n factorial (n!) & returns it*/
+		int factorial(int n);
+
+		/*This function 'solves' the Traveling Salesman Problem by way of brute force*/
+		void bruteForceTSP(double *permResults, int numCities);
+
+		/*This function 'solves' the Traveling Salesman Problem by way of a genetic algorithm*/
+		void genAlgTSP();
+
+		/*This function runs the program*/
+		int main();
