@@ -1,0 +1,36 @@
+Jared Bumgardner
+Programming languages 
+Project 1 
+User's Manual 
+ 
+Setup and Compilation 
+1. Download and unzip the submission from eLearning on a Linux box in the multi-platform lab. 
+2. The submission includes: 
+main.c
+lexer.c
+lexer.h
+parser.c
+parser.h
+symbolTable.c
+symbolTable.h
+makefile
+run.bat
+Users Manual.txt(this file) 
+a1.txt, a2.txt, a3.txt, a4.txt, a5.txt, a6.txt, a7.txt, a8.txt
+ 
+3. Environment: This program has been tested in the multi-platform lab and will run there. ()
+ 
+4. Compiling. This program includes a Makefile. At the command line in Linux, type make. The 
+program produces an executable entitled p1 
+ 
+Running the program. Be sure all files are in the same 
+directory as the executable. Issue the command ./run.bat  No command line arguments are 
+required or checked for by the driver script. 
+ 
+User input: no user interaction with the program is required. 
+ 
+Output: All output goes to the console. Output will be similar to this: 
+Microsoft Windows [Version 10.0.19043.1466]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\cygwin64\home\jared\lexer> 
