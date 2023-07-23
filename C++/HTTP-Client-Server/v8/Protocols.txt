@@ -1,0 +1,2 @@
+This program utilizes the TCP/IP protocol suite for delivery of data between networked hosts.
+The program receives, responds to, and sends HTTP requests. It uses the HTTP protocol to deliver and request resources.
