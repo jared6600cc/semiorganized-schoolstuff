@@ -1,0 +1,8 @@
+ls
+ls 24
+foo 25
+bye
+foo
+foo
+ls
+ls

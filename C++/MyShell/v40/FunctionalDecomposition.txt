@@ -1,0 +1,44 @@
+Jared Bumgardner
+Data Structures & Algorithms 2
+Project 1
+Functional Decomposition
+
+
+
+/*==========User Defined Objects==========*/
+class Node{
+  //access
+  public:
+    std:: string name;
+    Node* left;
+    Node* right;
+};
+
+class Directory{
+  //access
+  public:
+    Node head;
+    Node curr;
+};
+
+
+
+
+/*==========Files & Functions in the program==========*/
+//This file controls the execution of the program
+	main.c
+
+//This file contains implementations of system commands
+	commands.cpp
+
+//This file contains prototypes for system commands
+	commands.hpp
+
+//This file contains objects for emulating a file directory
+	directory.hpp
+
+//This file makes and cleans the file. Compilation and stuff; ya know.
+	makefile
+
+//This file contains commands that run the file directory emulation
+	inputCommands.txt
