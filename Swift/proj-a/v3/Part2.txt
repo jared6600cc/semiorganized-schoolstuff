@@ -1,0 +1,78 @@
+//Jared Bumgardner
+//Feb 3 Exercises
+
+let pi: Float = 3.14
+
+/*--------
+SUPERCLASS
+--------*/
+
+protocol Shape { 
+	
+	func area()->Float
+	
+	func perimeter()->Float
+}
+
+
+/*--------
+SUBCLASSES
+--------*/
+
+class Circle: Shape { 
+	var radius: Float = 0
+	
+	init(radius: Float){ 
+		self.radius = radius
+	}
+	
+	func area()->Float{
+	return (self.radius) * pi * 2
+	}
+	
+	func perimeter()->Float{
+		return self.radius * pi * 2
+	}
+}
+
+
+class Square: Shape { 
+	var sideLength: Float = 0
+	
+	init(sideLength: Float){ 
+		self.sideLength = sideLength
+	}
+	
+	func area()->Float{
+		return self.sideLength * self.sideLength
+	}
+	
+	func perimeter()->Float{
+		return self.sideLength * 4
+	}
+}
+
+class Rectangle: Shape { 
+	var length: Float = 0
+	var width: Float = 0
+	
+	init(length: Float, width: Float){
+		self.length = length
+		self.width = width
+	}
+	
+	func area()->Float{
+		return self.length * self.width
+	}
+	
+	func perimeter()->Float{
+		return (2 * self.length) + (2 * self.width)
+	}
+}
+
+let someCircle1 = Circle(radius: 1)
+let someCircle2 = Circle(radius: 5)
+let someSquare1 = Square(sideLength: 10)
+let someSquare2 = Square(sideLength: 20)
+let someRectangle1 = Rectangle(length: 50, width: 55)
+let someRectangle2 = Rectangle(length: 100, width: 105)

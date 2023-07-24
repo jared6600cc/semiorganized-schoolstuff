@@ -1,0 +1,64 @@
+//Jared Bumgardner
+//Feb 3 Exercises
+
+let pi: Float = 3.14
+
+/*--------
+SUPERCLASS
+--------*/
+
+class Shape {
+	var name: String?
+	
+	func area()->Float{
+		return 0
+	}
+	
+	func perimeter()->Float{
+		return 0
+	}
+}
+
+
+
+/*--------
+SUBCLASSES
+--------*/
+
+class Circle: Shape { 
+	var radius: Float = 0
+	
+	override func area()->Float{
+	return (self.radius) * pi * 2
+	}
+	
+	override func perimeter()->Float{
+		return self.radius * pi * 2
+	}
+}
+
+
+class Square: Shape { 
+	var sideLength: Float = 0
+	
+	override func area()->Float{
+		return self.sideLength * self.sideLength
+	}
+	
+	override func perimeter()->Float{
+		return self.sideLength * 4
+	}
+}
+
+class Rectangle: Shape { 
+	var length: Float = 0
+	var width: Float = 0
+	
+	override func area()->Float{
+		return self.length * self.width
+	}
+	
+	override func perimeter()->Float{
+		return (2 * self.length) + (2 * self.width)
+	}
+}

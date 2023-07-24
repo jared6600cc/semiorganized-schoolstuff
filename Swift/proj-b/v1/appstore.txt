@@ -1,0 +1,187 @@
+class AppStore{
+	//--Appstore: store selling application objects
+	
+	
+	//Properties
+	var appList: [String: Double] = [:]			//list of apps in store [AppName: Price]
+	var profit: Double = 0						//app store profit
+	
+	
+	//App Publishing
+	func publish(sender: Developer, app: App){
+		//Don't accept if sender is not author
+		if(sender.devID != app.author.devID){
+			print("--ERROR: Submitter is not author.")
+			return
+		}
+		
+		//Don't accept if price is excessive
+		if(app.price > 100){
+			print("--ERROR: Rejected because of excessive price.")
+			return
+		}
+		
+		//Update Listings
+		appList.updateValue(app.price, forKey: app.title)		//add to appstore
+		sender.desktop.removeValue(forKey: app.title)			//remove from sender
+	}
+	
+	
+	//Simulate Day of Transactions
+	func simulateDay(app: App){
+		//Determine number of transactions
+		let numTransactions = 5						//Hardcoded due to arc4random_uniform not working in my sandbox environment
+		
+		//Simulate transactions
+		for _ in 1...numTransactions{				//Transaction occuring variable amount of times on specified app due to
+			transaction(app: app)					//-inability to randomize app selection due to arc4random_uniform prob
+		}
+	}
+	
+	
+	//Conduct transaction
+	func transaction(app: App){
+		//Credit Store & Author
+		self.profit += app.price * 0.7				//store takes 70%
+		app.author.profit += app.price * 0.3		//author takes 30%
+	}
+	
+	
+	//About
+	func about(){
+		print("appList: \(appList)\nprofit: \(profit)")
+	}
+}
+
+
+class App{
+	//--App: application object
+	
+	
+	//Properties
+	var author: Developer			//app author
+	var title: String				//name of app
+	var price: Double				//price of app
+	
+	
+	//About
+	func about(){
+		print("author: \(author)\ntitle: \(title)\nprice: \(price)")
+	}
+	
+	
+	//Initialization
+	init(author: Developer, title: String, price: Double){
+		self.author = author
+		self.title = title
+		self.price = price
+	}
+}
+
+
+
+class Developer{
+	//--Developer: author of application objects
+	
+	
+	//Properties
+	var desktop: [String: Double] = [:]			//apps in desktop [AppName: Price]
+	var devID: Int								//unique developer identifier
+	var profit: Double = 0
+	
+	
+	//App Creation
+	func createApp(dev: Developer, title: String, price: Double)->App{
+		let createdApp = App(author: dev, title: title, price: price)
+		
+		//update dev's desktop
+		dev.desktop.updateValue(createdApp.price, forKey: createdApp.title)
+		
+		return createdApp
+	}
+	
+	
+	//App Transfer
+	func emailApp(message: App, receiver: Developer){
+		receiver.desktop.updateValue(message.price, forKey: message.title)		//add to receiver
+		self.desktop.removeValue(forKey: message.title)							//remove from sender
+	}
+	
+	
+	//App Publishing
+	func publish(store: AppStore, submitter: Developer, message: App){
+		self.desktop.removeValue(forKey: message.title)							//remove from sender
+		store.publish(sender: submitter, app: message)							//submit to store
+	}
+	
+	
+	//About
+	func about(){
+		print("devID: \(devID)\nprofit: \(profit)")
+	}
+	
+	
+	//Initialization
+	init(devID: Int){
+		self.devID = devID
+	}
+}
+
+
+//TESTING ENVIRONMENT
+print("-----=====Creating Devs=====-----")
+let jared = Developer(devID: 0001)
+jared.about()
+let garfield = Developer(devID: 0002)
+garfield.about()
+print("**Dev's Created**")
+print(".")
+
+print("-----=====Email Demonstration=====-----")
+print("**Initial Contents of Desktops**")
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+
+print(".")
+let starwats = jared.createApp(dev: jared, title: "Star Wats", price: 10)
+print("**App Created**")
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+
+print(".")
+jared.emailApp(message: starwats, receiver: garfield)
+print("**App Emailed to Garfield**")
+
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+
+print(".")
+garfield.emailApp(message: starwats, receiver: jared)
+print("**App Emailed to Jared**")
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+print(".")
+
+print("=====App Publishing=====")
+print("**Contents of AppStore**")
+let store = AppStore()
+store.about()
+print(".")
+
+print("**Initial Contents of Desktops**")
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+print(".")
+
+jared.publish(store: store, submitter: jared, message: starwats)
+print("**App Published**")
+print("jared: \(jared.desktop)\n")
+print("garfield: \(garfield.desktop)\n")
+store.about()
+print(".")
+
+print("=====Day Simulation=====")
+store.simulateDay(app: starwats)
+print("**After Simulated Day of Transactions**")
+jared.about()
+print(".")
